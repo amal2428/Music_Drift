@@ -23,7 +23,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
                 FavouriteDb.favouriteSongs.notifyListeners();
 
                 const snackBar = SnackBar(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Color.fromRGBO(96, 27, 68, 1),
                   duration: Duration(milliseconds: 800),
                   behavior: SnackBarBehavior.floating,
                   width: 200,
@@ -40,7 +40,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
                 FavouriteDb.favouriteSongs.notifyListeners();
 
                 const snackBar = SnackBar(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Color.fromRGBO(96, 27, 68, 1),
                   duration: Duration(milliseconds: 800),
                   behavior: SnackBarBehavior.floating,
                   width: 200,

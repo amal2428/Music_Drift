@@ -4,10 +4,6 @@ import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/screens/favourite_screen/favourite_btn.dart';
 import 'package:music_drift/widgets/bg.dart';
 import 'package:music_drift/widgets/get_songs.dart';
-// import 'package:music_player/db_functions/db_function/db_fav.dart';
-// import 'package:music_player/screens/favourite_screen/favourite_btn.dart';
-// import 'package:music_player/widgets/bg.dart';
-// import 'package:music_player/widgets/get_songs.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:text_scroll/text_scroll.dart';
 
@@ -95,9 +91,9 @@ class _MiniPlayerState extends State<PlayScreen> {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding:const EdgeInsets.all(20),
             child: Column(children: [
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
               Container(
@@ -109,7 +105,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                   border: Border.all(color: Colors.grey, width: 3),
                 ),
                 child: QueryArtworkWidget(
-                  artworkBorder: BorderRadius.all(Radius.zero),
+                  artworkBorder:const BorderRadius.all(Radius.zero),
                   type: ArtworkType.AUDIO,
                   //  id: int.parse(myAudio.metas.id!),
                   id: widget.audioPlayerSong[currentIndex].id,
@@ -125,7 +121,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+             const SizedBox(
                 height: 80,
               ),
               Column(
@@ -195,7 +191,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                       _position.toString().substring(2, 7).split('.')[0],
                       style: const TextStyle(color: Colors.white),
                     ),
-                    SizedBox(
+                   const SizedBox(
                       height: 40,
                     ),
                     Text(
@@ -205,7 +201,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+             const SizedBox(
                 height: 40,
               ),
               Row(
@@ -221,7 +217,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                       stream: GetSongs.audioPlayer.shuffleModeEnabledStream,
                       builder: (context, snapshot) {
                         if (GetSongs.audioPlayer.shuffleModeEnabled) {
-                          return Icon(
+                          return const Icon(
                             Icons.shuffle,
                             color: Colors.white,
                             size: 25,
