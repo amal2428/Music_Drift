@@ -80,7 +80,7 @@ class _MiniPlayerState extends State<PlayScreen> {
           leading: IconButton(
             onPressed: (() {
               Navigator.pop(context);
-              GetSongs.audioPlayer.pause();
+              GetSongs.audioPlayer.play();
               FavouriteDb.favouriteSongs.notifyListeners();
             }),
             icon: const Icon(
@@ -91,9 +91,9 @@ class _MiniPlayerState extends State<PlayScreen> {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding:const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(children: [
-             const SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -105,11 +105,13 @@ class _MiniPlayerState extends State<PlayScreen> {
                   border: Border.all(color: Colors.grey, width: 3),
                 ),
                 child: QueryArtworkWidget(
-                  artworkBorder:const BorderRadius.all(Radius.zero),
+                  artworkBorder: const BorderRadius.all(Radius.zero),
                   type: ArtworkType.AUDIO,
-                  //  id: int.parse(myAudio.metas.id!),
+                  keepOldArtwork: true,
+                  artworkFit: BoxFit.fill,
+                  quality: 100,
+                  artworkClipBehavior: Clip.antiAliasWithSaveLayer,
                   id: widget.audioPlayerSong[currentIndex].id,
-
                   nullArtworkWidget: ClipRect(
                     clipBehavior: Clip.hardEdge,
                     child: Image.asset(
@@ -121,8 +123,8 @@ class _MiniPlayerState extends State<PlayScreen> {
                   ),
                 ),
               ),
-             const SizedBox(
-                height: 80,
+              const SizedBox(
+                height: 65,
               ),
               Column(
                 children: [
@@ -138,6 +140,9 @@ class _MiniPlayerState extends State<PlayScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
@@ -159,7 +164,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.only(right: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -191,8 +196,8 @@ class _MiniPlayerState extends State<PlayScreen> {
                       _position.toString().substring(2, 7).split('.')[0],
                       style: const TextStyle(color: Colors.white),
                     ),
-                   const SizedBox(
-                      height: 40,
+                    const SizedBox(
+                      height: 30,
                     ),
                     Text(
                       _duration.toString().substring(2, 7).split('.')[0],
@@ -200,9 +205,6 @@ class _MiniPlayerState extends State<PlayScreen> {
                     ),
                   ],
                 ),
-              ),
-             const SizedBox(
-                height: 40,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

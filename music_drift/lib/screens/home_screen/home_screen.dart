@@ -83,6 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
                     controller: _controller,
+                    // readOnly: true,
                     onChanged: (value) {
                       setState(() {
                         searchText = value;

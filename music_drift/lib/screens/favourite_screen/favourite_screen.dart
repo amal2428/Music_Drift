@@ -76,7 +76,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 children: [
                                   Image.asset('assets/images/no_favorites.png',
                                       height: 150),
-                                  Text(
+                                const  Text(
                                     'No Favourites',
                                     style: TextStyle(
                                         color: Colors.white,
@@ -114,7 +114,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                             ShowMiniPlayer.updateMiniPlayer(
                                                 songlist: favourlist);
                                           },
-                                          tileColor:
+                                          tileColor:const
                                               Color.fromARGB(9, 126, 126, 126),
                                           leading: QueryArtworkWidget(
                                             artworkBorder:
