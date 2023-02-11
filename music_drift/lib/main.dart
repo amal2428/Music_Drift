@@ -38,7 +38,7 @@ class _MusicAppState extends State<MusicApp> {
     return MaterialApp(
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      title: 'Music Player',
+      title: 'Music Drift',
       home: const SplashScreen(),
     );
   }

@@ -104,14 +104,15 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
         ),
       ),
     );
+    
   }
 
   void checkPlaylist(SongModel data) {
     if (!widget.playlist.isValueIn(data.id)) {
       widget.playlist.add(data.id);
-      final snackbar = SnackBar(
-          backgroundColor: const Color.fromARGB(126, 0, 0, 0),
-          duration: const Duration(milliseconds: 800),
+      const snackbar = SnackBar(
+          backgroundColor: Colors.transparent,
+          duration: Duration(milliseconds: 800),
           behavior: SnackBarBehavior.floating,
           width: 200,
           content: Text(
@@ -124,7 +125,7 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
     } else {
       widget.playlist.deleteData(data.id);
       final snackbar = SnackBar(
-        backgroundColor: const Color.fromARGB(126, 0, 0, 0),
+        backgroundColor:  Colors.transparent,
         content: Text(
           'Song Deleted',
           style: TextStyle(

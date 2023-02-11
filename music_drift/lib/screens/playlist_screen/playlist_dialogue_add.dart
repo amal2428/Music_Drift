@@ -23,6 +23,7 @@ class DialogList {
           content: Form(
             key: _formKey,
             child: TextFormField(
+              
               autofocus: true,
               cursorColor: Colors.white,
               style: TextStyle(color: Colors.white),
@@ -66,7 +67,8 @@ class DialogList {
                 child: Text(
                   'cancel',
                   style: TextStyle(color: Colors.red),
-                )),
+                ),
+                ),
             TextButton.icon(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {

@@ -28,7 +28,6 @@ class FavouriteDb {
   static add(SongModel song) async {
     musicDb.add(song.id);
     favouriteSongs.value.add(song);
-
     FavouriteDb.favouriteSongs.notifyListeners();
   }
 

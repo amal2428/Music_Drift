@@ -9,9 +9,22 @@ class SettingsScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(gradient: linearGradient()),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Center(child: Text('Settings')),
-      ),
+          backgroundColor: Colors.transparent,
+          body:
+              // Center(child: Text('Settings')),
+              AppBar(
+            title: Text(
+              'Settings',
+              style: TextStyle(letterSpacing: 1),
+            ),
+            backgroundColor: Colors.transparent,
+            leading: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  size: 20,
+                )),
+          )),
     );
   }
 }

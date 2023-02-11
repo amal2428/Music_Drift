@@ -51,21 +51,74 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     Column(
                       children: const [
                         Padding(
-                          padding: EdgeInsets.only(left: 20),
+                          padding: EdgeInsets.only(left: 20, top: 25),
                           child: Text(
                             "Favourites",
                             style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1,
-                            ),
+                                color: Colors.white,
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                                fontStyle: FontStyle.italic),
                           ),
                         ),
                       ],
                     ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      // MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(43, 0, 50, 0.295),
+                                borderRadius: BorderRadius.circular(8)),
+                            height: 55,
+                            width: 150,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: const Text(
+                                'Recently Played',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                            ),
+                          ),
+                          onTap: () {
+                            print('Recently played');
+                          },
+                        ),
+                        InkWell(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(43, 0, 50, 0.295),
+                                borderRadius: BorderRadius.circular(8)),
+                            height: 55,
+                            width: 150,
+                            child: Align(
+                                alignment: Alignment.center,
+                                child: const Text(
+                                  'Mostly Played',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FontStyle.italic),
+                                )),
+                          ),
+                          onTap: () {
+                            print('Mostly played');
+                          },
+                        )
+                      ],
+                    )
                   ],
                 ),
+
                 child: ValueListenableBuilder(
                     valueListenable: FavouriteDb.favouriteSongs,
                     builder:
@@ -76,7 +129,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 children: [
                                   Image.asset('assets/images/no_favorites.png',
                                       height: 150),
-                                const  Text(
+                                  const Text(
                                     'No Favourites',
                                     style: TextStyle(
                                         color: Colors.white,
@@ -114,8 +167,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                             ShowMiniPlayer.updateMiniPlayer(
                                                 songlist: favourlist);
                                           },
-                                          tileColor:const
-                                              Color.fromARGB(9, 126, 126, 126),
+                                          tileColor: const Color.fromARGB(
+                                              9, 126, 126, 126),
                                           leading: QueryArtworkWidget(
                                             artworkBorder:
                                                 BorderRadius.circular(5),

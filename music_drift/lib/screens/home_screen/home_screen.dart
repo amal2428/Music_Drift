@@ -46,7 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(gradient: linearGradient()),
+      decoration: BoxDecoration(gradient: linearGradient()),
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
         child: Scaffold(
           // bottomNavigationBar: const BottomNavBar(),
           backgroundColor: Colors.transparent,
@@ -82,10 +86,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextField(
+                    autofocus: false,
                     controller: _controller,
                     // readOnly: true,
                     onChanged: (value) {
                       setState(() {
+                        // FocusScope.of(context).unfocus();
+
+                        // FocusManager.instance.primaryFocus?.unfocus();
                         searchText = value;
                       });
                     },
@@ -98,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none),
                       contentPadding: const EdgeInsets.symmetric(vertical: 18),
-                      hintText: "Search song ,playlist ,artist...",
+                      hintText: "Search song, artist, title...",
                       hintStyle: const TextStyle(
                           color: Color.fromARGB(255, 188, 173, 173)),
                       prefixIcon: const Icon(Icons.search,
@@ -148,10 +156,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text(
                           'No songs Found',
                           style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 15,
-                              letterSpacing: 2),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                            letterSpacing: 2,
+                          ),
                         ),
                       );
                     }
@@ -160,7 +169,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListView.builder(
                         shrinkWrap: true,
                         physics: const ScrollPhysics(),
-                        itemCount: item.data?.length ?? 0,
+                        // itemCount: item.data?.length ?? 0,
+                        itemCount: songData.length,
                         itemBuilder: ((context, index) {
                           // SongModel song = item.data![index];
                           return Padding(
@@ -171,9 +181,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //   builder: (context) => PlayScreen(
                                 //     audioPlayerSong: [],
                                 //   ),
-
                                 // ));
-                                print('clicked');
+                                // print('clicked');
 
                                 GetSongs.audioPlayer.setAudioSource(
                                     GetSongs.createSongList(item.data!),
@@ -248,7 +257,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   searchFromStringList(String query, stringList) {
