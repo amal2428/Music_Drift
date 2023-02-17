@@ -4,7 +4,7 @@ import 'package:music_drift/db_functions/model/audio_player.dart';
 
 
 class PlaylistDb {
-  static ValueNotifier<List<AudioPlayer>> playlistNotifier = ValueNotifier([]);
+static ValueNotifier<List<AudioPlayer>> playlistNotifier = ValueNotifier([]);
 
   static Future<void> playlistAdd(AudioPlayer value) async {
     final playlistdb = Hive.box<AudioPlayer>('playlistDB');

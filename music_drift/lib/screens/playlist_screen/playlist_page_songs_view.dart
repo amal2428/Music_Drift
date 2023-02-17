@@ -91,7 +91,7 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
                                 Icons.add,
                                 color: Colors.white,
                               )
-                            : Icon(
+                            : const Icon(
                                 Icons.remove,
                                 color: Colors.red,
                               )),
@@ -124,7 +124,7 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
     } else {
       widget.playlist.deleteData(data.id);
-      final snackbar = SnackBar(
+      final snackbar = const SnackBar(
         backgroundColor:  Colors.transparent,
         content: Text(
           'Song Deleted',
@@ -132,7 +132,7 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
             color: Colors.white,
           ),
         ),
-        duration: const Duration(milliseconds: 800),
+        duration: Duration(milliseconds: 800),
         behavior: SnackBarBehavior.floating,
         width: 200,
       );

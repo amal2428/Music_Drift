@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/screens/favourite_screen/favourite_btn.dart';
 import 'package:music_drift/widgets/bg.dart';
 import 'package:music_drift/widgets/get_songs.dart';
@@ -28,14 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    requestPermission();
+    requestStoragePermission();
   }
 
-  void requestPermission() {
-    setState(() {
-      Permission.storage.request();
-    });
-  }
+  // void requestPermission() {
+  //   setState(() {
+  //     Permission.storage.request();
+  //   });
+  // }
 
   @override
   void dispose() {
@@ -145,6 +146,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       );
                     }
 
+                    if (!FavouriteDb.isfavourite) {
+                      FavouriteDb.isFavourite(item.data!);
+                    }
+                    GetSongs.songscopy = item.data!;
                     List<SongModel>? songData =
                         searchFromStringList(searchText, item.data);
                     if (searchText == "") {

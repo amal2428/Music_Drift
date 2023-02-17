@@ -10,6 +10,7 @@ Future<void> main(context) async {
   if (!Hive.isAdapterRegistered(AudioPlayerAdapter().typeId)) {
     Hive.registerAdapter(AudioPlayerAdapter());
   }
+  
   await Hive.openBox<int>('favouriteDB');
   await Hive.openBox<AudioPlayer>('playlistDB');
 
