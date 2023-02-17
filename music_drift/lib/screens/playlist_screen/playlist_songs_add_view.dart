@@ -87,7 +87,7 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
                           size: 50,
                           artworkFit: BoxFit.fill,
                           quality: 100,
-                          nullArtworkWidget: Icon(
+                          nullArtworkWidget:const Icon(
                             Icons.music_note_rounded,
                             color: Colors.white,
                           ),
@@ -95,18 +95,18 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
                         title: Text(
                           playlistSong[index].displayNameWOExt,
                           maxLines: 1,
-                          style: TextStyle(color: Colors.white),
+                          style:const TextStyle(color: Colors.white),
                         ),
                         subtitle: Text(
                           playlistSong[index].artist!,
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                         trailing: IconButton(
                             onPressed: () {
                               widget.playlist
                                   .deleteData(playlistSong[index].id);
                             },
-                            icon: Icon(Icons.delete_sweep))
+                            icon: const Icon(Icons.delete_sweep))
 
                         //  FavouriteButton(
                         //   song: playlistSong[index],

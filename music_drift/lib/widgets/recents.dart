@@ -20,12 +20,16 @@
 //         dbSongs.firstWhere((song) => song.id.contains(songId));
 
 //     /////////////////---------For Most Played----------///////////////////////////
+
 //     int count = recentSong.count;
 //     recentSong.count = count + 1;
 //     log(recentSong.count.toString());
+
 //     //////////////////////////////////////////////////////////////////////////////
 //     /////////////////---------Calling MostPlayed---------/////////////////////////
+
 //     MostPlayed.addSongToPlaylist(songId);
+
 //     //////////////////////////////////////////////////////////////////////////////
 //     if (recentSongList.length >= 10) {
 //       recentSongList.removeLast();

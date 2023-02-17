@@ -4,8 +4,6 @@ import 'package:just_audio_background/just_audio_background.dart';
 import 'package:music_drift/db_functions/model/audio_player.dart';
 import 'package:music_drift/screens/splash_screen/splash_screen.dart';
 
-
-
 Future<void> main(context) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
@@ -25,14 +23,9 @@ Future<void> main(context) async {
   );
 }
 
-class MusicApp extends StatefulWidget {
+class MusicApp extends StatelessWidget {
   const MusicApp({super.key});
 
-  @override
-  State<MusicApp> createState() => _MusicAppState();
-}
-
-class _MusicAppState extends State<MusicApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -78,9 +78,9 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 borderRadius: BorderRadius.circular(8)),
                             height: 55,
                             width: 150,
-                            child: Align(
+                            child:const Align(
                               alignment: Alignment.center,
-                              child: const Text(
+                              child:  Text(
                                 'Recently Played',
                                 style: TextStyle(
                                     color: Colors.white,
