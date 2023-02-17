@@ -48,69 +48,65 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
           backgroundColor: Colors.transparent,
         ),
         body: SafeArea(
-            // child: Text('qawetsxrcfgvrxecfvg'),
             child: ValueListenableBuilder(
           valueListenable: Hive.box<AudioPlayer>('playlistDB').listenable(),
           builder:
               (BuildContext context, Box<AudioPlayer> value, Widget? child) {
-
             playlistSong =
                 listplaylist(value.values.toList()[widget.folderindex].songId);
 
             return ListView.separated(
               shrinkWrap: true,
               physics: const ScrollPhysics(),
-
-              // physics: const NeverScrollableScrollPhysics(),
               itemBuilder: ((context, index) {
                 return ListTile(
-                    onTap: () async {
-                      List<SongModel> newList = [...playlistSong];
-                      GetSongs.audioPlayer.setAudioSource(
-                          GetSongs.createSongList(newList),
-                          initialIndex: index);
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: ((context) => PlayScreen(
-                                audioPlayerSong: playlistSong,
-                              )),
-                        ),
-                      );
-                      GetSongs.audioPlayer.play();
-                    },
-                    leading: QueryArtworkWidget(
-                      id: playlistSong[index].id,
-                      type: ArtworkType.AUDIO,
-                      artworkBorder: BorderRadius.circular(2),
-                      size: 50,
-                      artworkFit: BoxFit.fill,
-                      quality: 100,
-                      nullArtworkWidget: const Icon(
-                        Icons.music_note_rounded,
-                        color: Colors.white,
+                  onTap: () async {
+                    List<SongModel> newList = [...playlistSong];
+                    GetSongs.audioPlayer.setAudioSource(
+                        GetSongs.createSongList(newList),
+                        initialIndex: index);
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: ((context) => PlayScreen(
+                              audioPlayerSong: playlistSong,
+                            )),
                       ),
-                    ),
-                    title: Text(
-                      playlistSong[index].displayNameWOExt,
-                      maxLines: 1,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                    subtitle: Text(
-                      playlistSong[index].artist!,
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                    trailing: IconButton(
-                        onPressed: () {
-                          widget.playlist.deleteData(playlistSong[index].id);
-                        },
-                        icon: const Icon(Icons.delete_sweep))
-
-                    //  FavouriteButton(
-                    //   song: playlistSong[index],
-                    // )
-                    // ),
-
                     );
+                    GetSongs.audioPlayer.play();
+                  },
+                  leading: QueryArtworkWidget(
+                    id: playlistSong[index].id,
+                    type: ArtworkType.AUDIO,
+                    artworkBorder: BorderRadius.circular(2),
+                    size: 50,
+                    artworkFit: BoxFit.fill,
+                    quality: 100,
+                    nullArtworkWidget: const Image(
+                      image: AssetImage("assets/images/music logo.jpg"),
+                      fit: BoxFit.fill,
+                      height: 45,
+                      width: 50,
+                    ),
+                  ),
+                  title: Text(
+                    playlistSong[index].displayNameWOExt,
+                    maxLines: 1,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    playlistSong[index].artist!,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  trailing: IconButton(
+                    onPressed: () {
+                      widget.playlist.deleteData(playlistSong[index].id);
+                    },
+                    icon: const Icon(
+                      Icons.delete_sweep,
+                      color: Colors.red,
+                    ),
+                  ),
+                );
               }),
               itemCount: playlistSong.length,
               separatorBuilder: (context, index) => const Divider(),

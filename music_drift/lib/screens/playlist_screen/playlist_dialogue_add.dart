@@ -6,7 +6,7 @@ final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 TextEditingController newPlaylistController = TextEditingController();
 
 class DialogList {
-  // dialog for Adding playlist
+  //  for Adding playlist
   static addPlaylistDialog(context) {
     showDialog(
       context: context,
@@ -16,7 +16,7 @@ class DialogList {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          title: Text(
+          title:const Text(
             'Create new playlist',
             style: TextStyle(color: Colors.white, fontSize: 15),
           ),
@@ -26,12 +26,12 @@ class DialogList {
               
               autofocus: true,
               cursorColor: Colors.white,
-              style: TextStyle(color: Colors.white),
+              style:const  TextStyle(color: Colors.white),
               controller: newPlaylistController,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
+                  borderSide:const  BorderSide(
                     color: Colors.white,
                   ),
                   borderRadius: BorderRadius.circular(5),
@@ -64,7 +64,7 @@ class DialogList {
                 onPressed: (() {
                   return Navigator.of(context).pop();
                 }),
-                child: Text(
+                child:const Text(
                   'cancel',
                   style: TextStyle(color: Colors.red),
                 ),
@@ -84,11 +84,11 @@ class DialogList {
                     Navigator.of(context).pop();
                   }
                 },
-                icon: Icon(
+                icon:const Icon(
                   Icons.playlist_add,
                   color: Colors.white,
                 ),
-                label: Text(
+                label:const Text(
                   'create',
                   style: TextStyle(
                     color: Colors.white,

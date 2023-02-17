@@ -41,7 +41,6 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 elevation: 5,
                 fadeOffset: 50,
                 expandedHeight: 150,
-                // backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                 backgroundColor: Colors.transparent,
 
                 fadeWidget: Column(
@@ -59,7 +58,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 1,
-                                fontStyle: FontStyle.italic),
+                                fontStyle: FontStyle.italic
+                                ),
                           ),
                         ),
                       ],
@@ -69,18 +69,17 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      // MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
                       children: [
                         InkWell(
                           child: Container(
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(43, 0, 50, 0.295),
+                                color:const Color.fromRGBO(43, 0, 50, 0.295),
                                 borderRadius: BorderRadius.circular(8)),
-                            height: 55,
+                            height: 40,
                             width: 150,
-                            child:const Align(
+                            child: const Align(
                               alignment: Alignment.center,
-                              child:  Text(
+                              child: Text(
                                 'Recently Played',
                                 style: TextStyle(
                                     color: Colors.white,
@@ -96,13 +95,13 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                         InkWell(
                           child: Container(
                             decoration: BoxDecoration(
-                                color: Color.fromRGBO(43, 0, 50, 0.295),
+                                color:const Color.fromRGBO(43, 0, 50, 0.295),
                                 borderRadius: BorderRadius.circular(8)),
-                            height: 55,
+                            height: 40,
                             width: 150,
-                            child: Align(
+                            child:const Align(
                                 alignment: Alignment.center,
-                                child: const Text(
+                                child:  Text(
                                   'Mostly Played',
                                   style: TextStyle(
                                       color: Colors.white,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:music_drift/db_functions/db_function/db_playlist.dart';
 import 'package:music_drift/db_functions/model/audio_player.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_dialogue_add.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_songs_add_view.dart';
@@ -29,20 +30,21 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               backgroundColor: Colors.transparent,
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new,
-                    size: 20,
-                  ),
-                  color: Colors.white,
-                ),
+                // leading: IconButton(
+                //   onPressed: () {},
+                //   icon: const Icon(
+                //     Icons.arrow_back_ios_new,
+                //     size: 20,
+                //   ),
+                //   color: Colors.white,
+                // ),
                 title: const Text(
-                  'Playlist',
+                  '  Playlist',
                   style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 20,
-                      letterSpacing: 1.5),
+                      fontWeight: FontWeight.w600,
+                      fontSize: 28,
+                      letterSpacing: 1,
+                      fontStyle: FontStyle.italic),
                 ),
                 actions: [
                   IconButton(
@@ -62,13 +64,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  // OptionWidget(
-                  //   infoText: 'Add playlist',
-                  //   infoIcon: Icons.playlist_add,
-                  //   infoAction: () {
-                  //     DialogList.addPlaylistDialog(context);
-                  //   },
-                  // ),
                   const SizedBox(
                     height: 15,
                   ),
@@ -105,8 +100,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                             borderRadius:
                                                 BorderRadius.circular(5),
                                           ),
-                                          tileColor:
-                                              Color.fromARGB(167, 43, 0, 50),
+                                          tileColor: const Color.fromARGB(
+                                              167, 43, 0, 50),
                                           leading: const Icon(
                                             Icons.my_library_music_rounded,
                                             size: 30,
@@ -122,7 +117,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                             children: [
                                               IconButton(
                                                   onPressed: () {
-//content to change
                                                     showDialog(
                                                         context: context,
                                                         builder: (context) {
@@ -141,7 +135,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                       .circular(
                                                                           15.0),
                                                             ),
-                                                            title: Text(
+                                                            title: const Text(
                                                               'Edit playlist name',
                                                               style: TextStyle(
                                                                   color: Colors
@@ -156,7 +150,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                 cursorColor:
                                                                     Colors
                                                                         .white,
-                                                                style: TextStyle(
+                                                                style: const TextStyle(
                                                                     color: Colors
                                                                         .white),
                                                                 controller:
@@ -169,7 +163,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                   focusedBorder:
                                                                       OutlineInputBorder(
                                                                     borderSide:
-                                                                        BorderSide(
+                                                                        const BorderSide(
                                                                       color: Colors
                                                                           .white,
                                                                     ),
@@ -198,7 +192,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                 ),
                                                                 // validator: (value) {
                                                                 //   bool check =
-                                                                //       PlaylistDb()
+                                                                //       PlaylistDb
                                                                 //           .playlistnameCheck(
                                                                 //               value);
                                                                 //   if (value == '') {
@@ -218,7 +212,8 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                           context)
                                                                       .pop();
                                                                 }),
-                                                                child: Text(
+                                                                child:
+                                                                    const Text(
                                                                   'cancel',
                                                                   style: TextStyle(
                                                                       color: Colors
@@ -256,13 +251,15 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                     //       .pop();
                                                                     // }
                                                                   },
-                                                                  icon: Icon(
+                                                                  icon:
+                                                                      const Icon(
                                                                     Icons
                                                                         .edit_note_sharp,
                                                                     color: Colors
                                                                         .white,
                                                                   ),
-                                                                  label: Text(
+                                                                  label:
+                                                                      const Text(
                                                                     'confirm',
                                                                     style:
                                                                         TextStyle(

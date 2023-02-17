@@ -27,6 +27,7 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: const Text('Add songs'),
+          elevation: 0,
         ),
         body: SingleChildScrollView(
           child: FutureBuilder<List<SongModel>>(
@@ -64,9 +65,11 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
                       size: 50,
                       artworkFit: BoxFit.fill,
                       quality: 100,
-                      nullArtworkWidget: const Icon(
-                        Icons.music_note_rounded,
-                        color: Colors.white,
+                      nullArtworkWidget: const Image(
+                        image: AssetImage("assets/images/music logo.jpg"),
+                        fit: BoxFit.fill,
+                        height: 45,
+                        width: 50,
                       ),
                     ),
                     title: Text(
@@ -76,6 +79,7 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
                     ),
                     subtitle: Text(
                       '${item.data![index].artist}',
+                      maxLines: 1,
                       style: const TextStyle(color: Colors.white),
                     ),
                     trailing: IconButton(
@@ -104,7 +108,6 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
         ),
       ),
     );
-    
   }
 
   void checkPlaylist(SongModel data) {
@@ -124,8 +127,8 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
     } else {
       widget.playlist.deleteData(data.id);
-      final snackbar = const SnackBar(
-        backgroundColor:  Colors.transparent,
+      const snackbar = SnackBar(
+        backgroundColor: Colors.transparent,
         content: Text(
           'Song Deleted',
           style: TextStyle(

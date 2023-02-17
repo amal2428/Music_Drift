@@ -14,7 +14,6 @@ import 'package:on_audio_query/on_audio_query.dart';
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar(
       {
-      // Key? key,
       super.key});
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -35,7 +34,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: bottomNavOptions),
       backgroundColor: Colors.transparent,
-// CurvedNavigationBar
       bottomNavigationBar: ValueListenableBuilder(
         valueListenable: playingSongNotifier,
         builder: (context, List<SongModel> music, Widget? child) {
@@ -56,7 +54,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   }),
             const SizedBox.shrink(),
             CurvedNavigationBar(
-              backgroundColor: Color.fromRGBO(43, 0, 50, 1),
+              backgroundColor:const Color.fromRGBO(43, 0, 50, 1),
               color: const Color.fromARGB(255, 79, 8, 50),
               height: 55,
               items: const [
@@ -88,7 +86,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   FavouriteDb.favouriteSongs.notifyListeners();
                   playingSongNotifier.notifyListeners();
 
-                  // bottomNavOptions.elementAt(_selectedIndex);
                 });
               },
             ),

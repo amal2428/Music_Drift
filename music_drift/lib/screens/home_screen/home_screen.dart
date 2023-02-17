@@ -8,7 +8,6 @@ import 'package:music_drift/widgets/get_songs.dart';
 import 'package:music_drift/widgets/miniplayer.dart';
 import 'package:music_drift/widgets/text.dart';
 import 'package:on_audio_query/on_audio_query.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,11 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     requestStoragePermission();
   }
 
-  // void requestPermission() {
-  //   setState(() {
-  //     Permission.storage.request();
-  //   });
-  // }
+
 
   @override
   void dispose() {
@@ -53,7 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
           FocusScope.of(context).unfocus();
         },
         child: Scaffold(
-          // bottomNavigationBar: const BottomNavBar(),
           backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Column(
@@ -89,12 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: TextField(
                     autofocus: false,
                     controller: _controller,
-                    // readOnly: true,
                     onChanged: (value) {
                       setState(() {
-                        // FocusScope.of(context).unfocus();
-
-                        // FocusManager.instance.primaryFocus?.unfocus();
+                      
                         searchText = value;
                       });
                     },
@@ -149,7 +140,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (!FavouriteDb.isfavourite) {
                       FavouriteDb.isFavourite(item.data!);
                     }
+                  
                     GetSongs.songscopy = item.data!;
+
+
                     List<SongModel>? songData =
                         searchFromStringList(searchText, item.data);
                     if (searchText == "") {
@@ -174,21 +168,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListView.builder(
                         shrinkWrap: true,
                         physics: const ScrollPhysics(),
-                        // itemCount: item.data?.length ?? 0,
                         itemCount: songData.length,
                         itemBuilder: ((context, index) {
-                          // SongModel song = item.data![index];
                           return Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: ListTile(
                               onTap: () async {
-                                // Navigator.of(context).push(MaterialPageRoute(
-                                //   builder: (context) => PlayScreen(
-                                //     audioPlayerSong: [],
-                                //   ),
-                                // ));
-                                // print('clicked');
-
+                             
                                 GetSongs.audioPlayer.setAudioSource(
                                     GetSongs.createSongList(item.data!),
                                     initialIndex: index);
@@ -198,19 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                 await GetSongs.audioPlayer.play();
 
-                                // if (play == true) {
-                                //   await GetSongs.audioPlayer.play();
-                                //   setState(() {
-                                //     play = false;
-                                //     playIcon = const Icon(Icons.pause_outlined);
-                                //   });
-                                // } else {
-                                //   await GetSongs.audioPlayer.pause();
-                                //   setState(() {
-                                //     play = true;
-                                //     playIcon = const Icon(Icons.play_arrow);
-                                //   });
-                                // }
+                              
                               },
                               leading: QueryArtworkWidget(
                                 id: songData![index].id,
@@ -228,10 +202,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 45,
                                   width: 50,
                                 ),
-                                //  const Icon(Icons.music_note_rounded),
                               ),
-                              // leading: const Icon(Icons.music_note),
-                              // tileColor: Color.fromARGB(103, 166, 189, 13),
+                          
 
                               title: Text(
                                 songData[index].displayNameWOExt,
@@ -245,7 +217,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               trailing:
                                   FavouriteButton(song: item.data![index]),
-                              //     const Icon(Icons.favorite_border_outlined),
                               textColor: Colors.white,
                               iconColor: Colors.white,
                             ),

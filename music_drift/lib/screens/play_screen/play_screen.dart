@@ -15,7 +15,6 @@ class PlayScreen extends StatefulWidget {
 
   final List<SongModel> audioPlayerSong;
 
-  // super.key});
 
   @override
   State<PlayScreen> createState() => _MiniPlayerState();

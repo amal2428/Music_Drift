@@ -21,8 +21,9 @@ class _MiniPlayerState extends State<MiniPlayer> {
   void initState() {
     GetSongs.audioPlayer.currentIndexStream.listen((index) {
       if (index != null && mounted) {
-        setState(() {});
         GetSongs.currentIndexes = index;
+
+        setState(() {});
       }
     });
     super.initState();
