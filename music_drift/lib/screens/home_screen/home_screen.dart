@@ -31,8 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
     requestStoragePermission();
   }
 
-
-
   @override
   void dispose() {
     GetSongs.audioPlayer.dispose();
@@ -85,7 +83,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller: _controller,
                     onChanged: (value) {
                       setState(() {
-                      
                         searchText = value;
                       });
                     },
@@ -140,9 +137,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (!FavouriteDb.isfavourite) {
                       FavouriteDb.isFavourite(item.data!);
                     }
-                  
-                    GetSongs.songscopy = item.data!;
 
+                    GetSongs.songscopy = item.data!;
 
                     List<SongModel>? songData =
                         searchFromStringList(searchText, item.data);
@@ -174,20 +170,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: const EdgeInsets.all(5.0),
                             child: ListTile(
                               onTap: () async {
-                             
                                 GetSongs.audioPlayer.setAudioSource(
-                                    GetSongs.createSongList(item.data!),
+                                    GetSongs.createSongList(songData!),
                                     initialIndex: index);
 
                                 await ShowMiniPlayer.updateMiniPlayer(
-                                    songlist: item.data!);
+                                    songlist: songData);
 
                                 await GetSongs.audioPlayer.play();
-
-                              
                               },
                               leading: QueryArtworkWidget(
                                 id: songData![index].id,
+
                                 type: ArtworkType.AUDIO,
                                 artworkBorder: BorderRadius.circular(1),
                                 // size: 40,
@@ -203,8 +197,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   width: 50,
                                 ),
                               ),
-                          
-
                               title: Text(
                                 songData[index].displayNameWOExt,
                                 maxLines: 1,

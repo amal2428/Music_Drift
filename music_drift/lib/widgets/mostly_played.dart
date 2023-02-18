@@ -12,7 +12,7 @@
 //     final dbSongs = songBox.values.toList().cast<AudioPlayer>();
 
 //     final mostPlayedSong =
-//         dbSongs.firstWhere((song) => song.songId.contains(songId));
+//         dbSongs.firstWhere((song) => song.songId.toString().contains(songId));
 //     if (mostPlayedlist.length >= 10) {
 //       mostPlayedlist.removeLast();
 //     }
@@ -24,7 +24,7 @@
 //         mostPlayedlist.insert(0, mostPlayedSong);
 //         await playlistBox.put('Most Played', mostPlayedlist);
 //       } else {
-//         mostPlayedlist.removeWhere((song) => song.songId == mostPlayedSong.soid);
+//         mostPlayedlist.removeWhere((song) => song.songId == mostPlayedSong.songId);
 //         mostPlayedlist.insert(0, mostPlayedSong);
 //         await playlistBox.put('Most Played', mostPlayedlist);
 //       }

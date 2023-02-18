@@ -36,12 +36,14 @@ class FavouriteDb {
     if (!musicDb.values.contains(id)) {
       return;
     }
+
     final Map<dynamic, int> favourMap = musicDb.toMap();
     favourMap.forEach((key, value) {
       if (value == id) {
         deletekey = key;
       }
     });
+    
     musicDb.delete(deletekey);
     favouriteSongs.value.removeWhere((song) => song.id == id);
   }

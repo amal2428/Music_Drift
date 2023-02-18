@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:music_drift/db_functions/db_function/db_playlist.dart';
 import 'package:music_drift/db_functions/model/audio_player.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_dialogue_add.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_songs_add_view.dart';
@@ -13,6 +12,7 @@ class PlaylistScreen extends StatefulWidget {
   State<PlaylistScreen> createState() => _PlaylistScreenState();
 }
 
+// final playlistBox = Hive.box<List>('Playlist');
 final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 TextEditingController newPlaylistController = TextEditingController();
 
@@ -30,14 +30,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               backgroundColor: Colors.transparent,
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
-                // leading: IconButton(
-                //   onPressed: () {},
-                //   icon: const Icon(
-                //     Icons.arrow_back_ios_new,
-                //     size: 20,
-                //   ),
-                //   color: Colors.white,
-                // ),
                 title: const Text(
                   '  Playlist',
                   style: TextStyle(
@@ -190,12 +182,18 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                     ),
                                                                   ),
                                                                 ),
-                                                                // validator: (value) {
+
+                                                                ///////////////////////////////////
+                                                                ///
+
+                                                                // validator:
+                                                                //     (value) {
                                                                 //   bool check =
                                                                 //       PlaylistDb
                                                                 //           .playlistnameCheck(
                                                                 //               value);
-                                                                //   if (value == '') {
+                                                                //   if (value ==
+                                                                //       '') {
                                                                 //     return 'Enter playlist name';
                                                                 //   } else if (check) {
                                                                 //     return '$value already exist';
@@ -269,7 +267,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                   )),
                                                             ],
                                                           );
-                                                        });
+                                                        }); /////////////////////////////////////////////////////
                                                   },
                                                   icon: const Icon(
                                                     Icons.edit_note_rounded,

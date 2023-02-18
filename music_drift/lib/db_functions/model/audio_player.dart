@@ -7,10 +7,13 @@ class AudioPlayer extends HiveObject {
   late String name;
   @HiveField(1)
   List<int> songId;
+  // @HiveField(2)
+  // int count;
 
   AudioPlayer({
     required this.name,
     required this.songId,
+    // this.count=0,
   });
 
   add(int id) async {

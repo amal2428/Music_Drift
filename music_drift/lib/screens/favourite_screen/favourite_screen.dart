@@ -4,6 +4,8 @@ import 'package:just_audio/just_audio.dart';
 import 'package:music_drift/widgets/bg.dart';
 import 'package:music_drift/widgets/get_songs.dart';
 import 'package:music_drift/widgets/miniplayer.dart';
+import 'package:music_drift/widgets/mostly_played.dart';
+import 'package:music_drift/widgets/recents.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import '../../db_functions/db_function/db_fav.dart';
 
@@ -42,7 +44,6 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 fadeOffset: 50,
                 expandedHeight: 150,
                 backgroundColor: Colors.transparent,
-
                 fadeWidget: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,8 +59,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 1,
-                                fontStyle: FontStyle.italic
-                                ),
+                                fontStyle: FontStyle.italic),
                           ),
                         ),
                       ],
@@ -73,7 +73,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                         InkWell(
                           child: Container(
                             decoration: BoxDecoration(
-                                color:const Color.fromRGBO(43, 0, 50, 0.295),
+                                color: const Color.fromRGBO(43, 0, 50, 0.295),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 40,
                             width: 150,
@@ -89,19 +89,20 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             ),
                           ),
                           onTap: () {
+                            // Recents();
                             print('Recently played');
                           },
                         ),
                         InkWell(
                           child: Container(
                             decoration: BoxDecoration(
-                                color:const Color.fromRGBO(43, 0, 50, 0.295),
+                                color: const Color.fromRGBO(43, 0, 50, 0.295),
                                 borderRadius: BorderRadius.circular(8)),
                             height: 40,
                             width: 150,
-                            child:const Align(
+                            child: const Align(
                                 alignment: Alignment.center,
-                                child:  Text(
+                                child: Text(
                                   'Mostly Played',
                                   style: TextStyle(
                                       color: Colors.white,
@@ -110,6 +111,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 )),
                           ),
                           onTap: () {
+                            // MostPlayed();
                             print('Mostly played');
                           },
                         )
@@ -117,7 +119,6 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     )
                   ],
                 ),
-
                 child: ValueListenableBuilder(
                     valueListenable: FavouriteDb.favouriteSongs,
                     builder:

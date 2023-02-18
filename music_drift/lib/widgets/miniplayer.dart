@@ -21,9 +21,8 @@ class _MiniPlayerState extends State<MiniPlayer> {
   void initState() {
     GetSongs.audioPlayer.currentIndexStream.listen((index) {
       if (index != null && mounted) {
-        GetSongs.currentIndexes = index;
-
         setState(() {});
+        GetSongs.currentIndexes = index;
       }
     });
     super.initState();
@@ -37,7 +36,7 @@ class _MiniPlayerState extends State<MiniPlayer> {
           //     topLeft: Radius.circular(2), bottomRight: Radius.circular(2)),
           //
           gradient: LinearGradient(
-        begin: Alignment.bottomLeft,
+        begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         // begin: Alignment.topLeft,
         // end: Alignment.bottomRight,

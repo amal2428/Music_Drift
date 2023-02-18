@@ -41,7 +41,7 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
                   ));
                 },
                 icon: const Icon(
-                  Icons.playlist_add,
+                  Icons.my_library_music_outlined,
                   size: 30,
                 ))
           ],
@@ -100,6 +100,19 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
                   trailing: IconButton(
                     onPressed: () {
                       widget.playlist.deleteData(playlistSong[index].id);
+                      const snackbar = SnackBar(
+                        backgroundColor: Colors.transparent,
+                        content: Text(
+                          '  Song Deleted',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        duration: Duration(milliseconds: 800),
+                        behavior: SnackBarBehavior.floating,
+                        width: 150,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
                     },
                     icon: const Icon(
                       Icons.delete_sweep,

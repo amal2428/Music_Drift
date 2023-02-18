@@ -37,7 +37,7 @@ dependencies:
   just_audio: ^0.9.31
   just_audio_background: ^0.0.1-beta.8
   on_audio_query: ^2.6.1
-  permission_handler: ^9.2.0
+  # permission_handler: ^9.2.0
   text_scroll: ^0.1.2
   miniplayer: ^1.0.1
 
