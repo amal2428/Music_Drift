@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:lottie/lottie.dart';
 import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/screens/favourite_screen/favourite_btn.dart';
 import 'package:music_drift/widgets/bg.dart';
@@ -14,7 +15,6 @@ class PlayScreen extends StatefulWidget {
   }) : super(key: key);
 
   final List<SongModel> audioPlayerSong;
-
 
   @override
   State<PlayScreen> createState() => _MiniPlayerState();
@@ -101,7 +101,7 @@ class _MiniPlayerState extends State<PlayScreen> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.grey, width: 3),
+                  border: Border.all(color: Colors.grey, width: 1),
                 ),
                 child: QueryArtworkWidget(
                   artworkBorder: const BorderRadius.all(Radius.zero),
@@ -113,12 +113,23 @@ class _MiniPlayerState extends State<PlayScreen> {
                   id: widget.audioPlayerSong[currentIndex].id,
                   nullArtworkWidget: ClipRect(
                     clipBehavior: Clip.hardEdge,
-                    child: Image.asset(
-                      'assets/images/music.jpg',
-                      fit: BoxFit.cover,
-                      height: 100,
-                      width: 100,
-                    ),
+
+                    // child: Lottie.asset('assets/lottie/musical-theme.json'),
+                    // child: Lottie.asset('assets/lottie/pentagram.json'),
+                    // child: Lottie.asset('assets/lottie/happy-spaceman.json'),
+                    // child: Lottie.asset('assets/lottie/music-burst-icon.json'),
+                    // child: Lottie.asset('assets/lottie/music-loader.json'),
+                    child:
+                        Lottie.asset('assets/lottie/pink-astronaut-music.json'),
+                    // child: Lottie.asset('assets/lottie/music-player.json'),
+                    // child: Lottie.asset('assets/lottie/spinning-disk.json'),
+                    // Image.asset(
+                    //   'assets/images/music.jpg',
+                    //   // Lottie.asset('assets/LottieLogo1.json'),
+                    // fit: BoxFit.cover,
+                    // height: 100,
+                    // width: 100,
+                    // ),
                   ),
                 ),
               ),
@@ -163,10 +174,23 @@ class _MiniPlayerState extends State<PlayScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 10),
+                padding: const EdgeInsets.only(right: 3),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
+                  // mainAxisSize: MainAxisSize.min,
                   children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.playlist_add),
+                      iconSize: 30,
+                      color: Colors.white,
+                    ),
+                    // IconButton(
+                    //   onPressed(){},
+                    //   Icons.playlist_add,
+                    //   color: Colors.white,
+                    //   size: 30,
+                    // ),
                     FavouriteButton(
                       song: widget.audioPlayerSong[currentIndex],
                     ),

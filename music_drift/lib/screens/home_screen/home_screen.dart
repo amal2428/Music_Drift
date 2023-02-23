@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/screens/favourite_screen/favourite_btn.dart';
+import 'package:music_drift/screens/playlist_screen/playlist_screen.dart';
 import 'package:music_drift/widgets/bg.dart';
 import 'package:music_drift/widgets/get_songs.dart';
 import 'package:music_drift/widgets/miniplayer.dart';
@@ -59,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: TextWidget(
                       title: 'Welcome To Music Drift!',
-                      size: 25,
+                      size: 28,
                       style: FontStyle.italic,
                       textColor: Colors.white,
                     )),
@@ -133,13 +134,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     }
-
+                    //database
                     if (!FavouriteDb.isfavourite) {
                       FavouriteDb.isFavourite(item.data!);
                     }
 
                     GetSongs.songscopy = item.data!;
-
+                    //
                     List<SongModel>? songData =
                         searchFromStringList(searchText, item.data);
                     if (searchText == "") {
@@ -198,7 +199,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               title: Text(
-                                songData[index].displayNameWOExt,
+                                // songData[index].displayNameWOExt,
+                                songData[index]
+                                        .displayNameWOExt
+                                        .substring(0, 1)
+                                        .toUpperCase() +
+                                    songData[index]
+                                        .displayNameWOExt
+                                        .substring(1),
+
                                 maxLines: 1,
                                 style: const TextStyle(fontSize: 16),
                               ),
@@ -207,10 +216,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                 maxLines: 1,
                                 style: const TextStyle(fontSize: 12),
                               ),
-                              trailing:
+
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {
+                                        const PlaylistScreen();
+                                      },
+                                      icon: const Icon(Icons.playlist_add)),
                                   FavouriteButton(song: item.data![index]),
+                                ],
+                              ),
                               textColor: Colors.white,
                               iconColor: Colors.white,
+                              // //
+                              // textColor: Colors.white,
+                              // iconColor: Colors.white,
                             ),
                           );
                         }),

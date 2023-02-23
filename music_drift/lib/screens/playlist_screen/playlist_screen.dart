@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:music_drift/db_functions/model/audio_player.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_dialogue_add.dart';
@@ -30,12 +31,13 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
               backgroundColor: Colors.transparent,
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
-                title: const Text(
-                  '  Playlist',
-                  style: TextStyle(
+                title: Text(
+                  ' Playlist',
+                  style: GoogleFonts.iceberg(
+                      color: Colors.white,
                       fontWeight: FontWeight.w600,
                       fontSize: 28,
-                      letterSpacing: 1,
+                      letterSpacing: 3,
                       fontStyle: FontStyle.italic),
                 ),
                 actions: [

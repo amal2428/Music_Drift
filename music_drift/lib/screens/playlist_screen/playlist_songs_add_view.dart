@@ -41,8 +41,8 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
                   ));
                 },
                 icon: const Icon(
-                  Icons.my_library_music_outlined,
-                  size: 30,
+                  Icons.add_sharp,
+                  size: 35,
                 ))
           ],
           backgroundColor: Colors.transparent,

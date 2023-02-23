@@ -6,7 +6,7 @@ class TextWidget extends StatelessWidget {
   final double size;
   final Color textColor;
   final FontStyle style;
-  
+
   const TextWidget({
     Key? key,
     required this.title,
@@ -19,11 +19,11 @@ class TextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: GoogleFonts.openSans(
+      style: GoogleFonts.iceberg(
           fontSize: size,
           fontWeight: FontWeight.w500,
           color: textColor,
-          letterSpacing: 1.5,
+          letterSpacing: 2,
           fontStyle: style),
     );
   }

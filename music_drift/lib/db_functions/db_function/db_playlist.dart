@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/db_functions/model/audio_player.dart';
-
+import 'package:music_drift/screens/splash_screen/splash_screen.dart';
 
 class PlaylistDb {
-static ValueNotifier<List<AudioPlayer>> playlistNotifier = ValueNotifier([]);
+  static ValueNotifier<List<AudioPlayer>> playlistNotifier = ValueNotifier([]);
 
   static Future<void> playlistAdd(AudioPlayer value) async {
     final playlistdb = Hive.box<AudioPlayer>('playlistDB');
@@ -41,5 +42,17 @@ static ValueNotifier<List<AudioPlayer>> playlistNotifier = ValueNotifier([]);
     return result;
   }
 
-  
+  Future<void> appReset(context) async {
+    final playlistDb = Hive.box<AudioPlayer>('playlistDB');
+    final musicDb = Hive.box<int>('favouriteDB');
+    await musicDb.clear();
+    await playlistDb.clear();
+    FavouriteDb.favouriteSongs.value.clear();
+
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(
+          builder: (context) => const SplashScreen(),
+        ),
+        (Route<dynamic> route) => false);
+  }
 }

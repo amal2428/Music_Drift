@@ -1,5 +1,6 @@
 import 'package:fade_scroll_app_bar/fade_scroll_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_drift/widgets/bg.dart';
 import 'package:music_drift/widgets/get_songs.dart';
@@ -49,16 +50,16 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Column(
-                      children: const [
+                      children: [
                         Padding(
                           padding: EdgeInsets.only(left: 20, top: 25),
                           child: Text(
-                            "Favourites",
-                            style: TextStyle(
+                            " Favourites",
+                            style: GoogleFonts.iceberg(
                                 color: Colors.white,
+                                fontWeight: FontWeight.w600,
                                 fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
+                                letterSpacing: 3,
                                 fontStyle: FontStyle.italic),
                           ),
                         ),

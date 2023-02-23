@@ -62,7 +62,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
                   )
                 : const Icon(
                     Icons.favorite_border,
-                    color: Color.fromARGB(255, 151, 151, 151),
+                    color: Colors.white,
                   ),
           );
         });

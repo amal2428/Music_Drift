@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:music_drift/screens/settings_screen/settings_about_us.dart';
+import 'package:music_drift/screens/settings_screen/settings_license.dart';
+import 'package:music_drift/screens/settings_screen/settings_privacy.dart';
+import 'package:music_drift/screens/settings_screen/settings_reset.dart';
 import 'package:music_drift/widgets/bg.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -6,24 +11,106 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(gradient: linearGradient()),
-      child: Scaffold(
-          backgroundColor: Colors.transparent,
-          body:
-              AppBar(
-            title: Text(
-              'Settings',
-              style: TextStyle(letterSpacing: 1),
+    return Column(
+      children: [
+        Flexible(
+          child: Container(
+            decoration: BoxDecoration(gradient: linearGradient()),
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              appBar: AppBar(
+                elevation: 0,
+                title: Text(
+                  ' Settings',
+                  style: GoogleFonts.iceberg(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 28,
+                      letterSpacing: 3,
+                      fontStyle: FontStyle.italic),
+                ),
+                backgroundColor: Colors.transparent,
+
+                // style: TextStyle(
+                //     fontWeight: FontWeight.w600,
+                //     fontSize: 28,
+                //     letterSpacing: 1,
+                //     fontStyle: FontStyle.italic),
+              ),
+              // backgroundColor: Colors.transparent,
+
+              body: ListView(
+                padding: const EdgeInsets.only(
+                    top: 25, bottom: 10, left: 2, right: 2),
+                children: ListTile.divideTiles(context: context, tiles: [
+                  ListTile(
+                    leading: const Icon(Icons.person),
+                    title: const Text('About Us'),
+                    tileColor: const Color.fromRGBO(43, 0, 50, 0.592),
+                    iconColor: Colors.white,
+                    textColor: Colors.white,
+                    onTap: () {
+                      AboutUs().aboutUs(context);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.privacy_tip_rounded),
+                    title: const Text('Privacy Policy'),
+                    tileColor: const Color.fromRGBO(43, 0, 50, 0.592),
+                    iconColor: Colors.white,
+                    textColor: Colors.white,
+                    onTap: () {
+                      Privacy().privacy(context);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.book),
+                    title: const Text('License'),
+                    tileColor: const Color.fromRGBO(43, 0, 50, 0.592),
+                    iconColor: Colors.white,
+                    textColor: Colors.white,
+                    onTap: () {
+                      License().license(context);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.restart_alt_outlined),
+                    title: const Text('Reset App'),
+                    tileColor: const Color.fromRGBO(43, 0, 50, 0.592),
+                    iconColor: Colors.white,
+                    textColor: Colors.white,
+                    onTap: () {
+                      resetApp(context);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                ]).toList(),
+              ),
             ),
-            backgroundColor: Colors.transparent,
-            leading: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  size: 20,
-                )),
-          )),
+          ),
+        ),
+        Container(
+          color: Color.fromRGBO(43, 0, 50, 1),
+          alignment: Alignment.bottomCenter,
+          padding: const EdgeInsets.only(bottom: 16),
+          child: const Text(
+            'V.1.0.0',
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
     );
   }
 }
