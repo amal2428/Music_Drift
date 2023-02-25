@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/screens/favourite_screen/favourite_btn.dart';
 import 'package:music_drift/widgets/bg.dart';
+import 'package:music_drift/widgets/bottom_sheet.dart';
 import 'package:music_drift/widgets/get_songs.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:text_scroll/text_scroll.dart';
@@ -177,20 +178,20 @@ class _MiniPlayerState extends State<PlayScreen> {
                 padding: const EdgeInsets.only(right: 3),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  // mainAxisSize: MainAxisSize.min,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // final name = widget
+                        //     .audioPlayerSong[GetSongs.currentIndexes]
+                        //     .displayNameWOExt;
+                        // final songid =
+                        //     widget.audioPlayerSong[GetSongs.currentIndexes].id;
+                        bottomSheet( context);
+                      },
                       icon: const Icon(Icons.playlist_add),
                       iconSize: 30,
                       color: Colors.white,
                     ),
-                    // IconButton(
-                    //   onPressed(){},
-                    //   Icons.playlist_add,
-                    //   color: Colors.white,
-                    //   size: 30,
-                    // ),
                     FavouriteButton(
                       song: widget.audioPlayerSong[currentIndex],
                     ),

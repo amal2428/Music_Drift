@@ -24,7 +24,6 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
   @override
   Widget build(BuildContext context) {
     PlaylistDb.getAllPlaylist();
-
     return Container(
       decoration: BoxDecoration(gradient: linearGradient()),
       child: Scaffold(
@@ -54,7 +53,6 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
               (BuildContext context, Box<AudioPlayer> value, Widget? child) {
             playlistSong =
                 listplaylist(value.values.toList()[widget.folderindex].songId);
-
             return ListView.separated(
               shrinkWrap: true,
               physics: const ScrollPhysics(),

@@ -10,6 +10,13 @@ class PlaylistDb {
   static Future<void> playlistAdd(AudioPlayer value) async {
     final playlistdb = Hive.box<AudioPlayer>('playlistDB');
     await playlistdb.add(value);
+    playlistNotifier.value.add(value);
+    getAllPlaylist();
+  }
+
+  static Future<void> playlistUpdate(AudioPlayer value, index) async {
+    final playlistdb = Hive.box<AudioPlayer>('playlistDB');
+    await playlistdb.putAt(index, value);
 
     playlistNotifier.value.add(value);
     getAllPlaylist();

@@ -15,10 +15,12 @@ class GetSongs {
         AudioSource.uri(
           Uri.parse(song.uri!),
           tag: MediaItem(
+
             id: song.id.toString(),
             title: song.title,
             album: song.album,
             artist: song.artist,
+            
           ),
         ),
       );

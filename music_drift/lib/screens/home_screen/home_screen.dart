@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:music_drift/db_functions/db_function/db_fav.dart';
 import 'package:music_drift/screens/favourite_screen/favourite_btn.dart';
-import 'package:music_drift/screens/playlist_screen/playlist_screen.dart';
 import 'package:music_drift/widgets/bg.dart';
+import 'package:music_drift/widgets/bottom_sheet.dart';
 import 'package:music_drift/widgets/get_songs.dart';
 import 'package:music_drift/widgets/miniplayer.dart';
 import 'package:music_drift/widgets/text.dart';
@@ -216,13 +216,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 maxLines: 1,
                                 style: const TextStyle(fontSize: 12),
                               ),
-
                               trailing: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   IconButton(
                                       onPressed: () {
-                                        const PlaylistScreen();
+                                        bottomSheet(context);
                                       },
                                       icon: const Icon(Icons.playlist_add)),
                                   FavouriteButton(song: item.data![index]),
@@ -230,9 +229,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               textColor: Colors.white,
                               iconColor: Colors.white,
-                              // //
-                              // textColor: Colors.white,
-                              // iconColor: Colors.white,
                             ),
                           );
                         }),

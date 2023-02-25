@@ -36,6 +36,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
                 );
                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
               } else {
+                
                 FavouriteDb.add(widget.song);
                 FavouriteDb.favouriteSongs.notifyListeners();
 

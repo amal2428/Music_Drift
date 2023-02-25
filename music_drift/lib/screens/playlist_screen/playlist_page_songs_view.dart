@@ -86,7 +86,6 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
                         onPressed: (() {
                           setState(() {
                             checkPlaylist(item.data![index]);
-
                             PlaylistDb.playlistNotifier.notifyListeners();
                           });
                         }),
@@ -114,16 +113,18 @@ class _PlaylistViewPageState extends State<PlaylistViewPage> {
     if (!widget.playlist.isValueIn(data.id)) {
       widget.playlist.add(data.id);
       const snackbar = SnackBar(
-          backgroundColor: Colors.transparent,
-          duration: Duration(milliseconds: 800),
-          behavior: SnackBarBehavior.floating,
-          width: 200,
-          content: Text(
-            'Added to Playlist',
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ));
+        backgroundColor: Colors.transparent,
+        duration: Duration(milliseconds: 800),
+        behavior: SnackBarBehavior.floating,
+        width: 200,
+        content: Text(
+          'Added to Playlist',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      );
+
       ScaffoldMessenger.of(context).showSnackBar(snackbar);
     } else {
       widget.playlist.deleteData(data.id);

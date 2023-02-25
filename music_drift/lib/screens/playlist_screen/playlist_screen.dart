@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:music_drift/db_functions/db_function/db_playlist.dart';
 import 'package:music_drift/db_functions/model/audio_player.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_dialogue_add.dart';
 import 'package:music_drift/screens/playlist_screen/playlist_songs_add_view.dart';
@@ -53,6 +54,9 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                 ],
                 elevation: 0,
               ),
+
+
+
               body: SingleChildScrollView(
                 child: Column(children: [
                   const SizedBox(
@@ -185,24 +189,23 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                   ),
                                                                 ),
 
-                                                                ///////////////////////////////////
-                                                                ///
+                                                                
 
-                                                                // validator:
-                                                                //     (value) {
-                                                                //   bool check =
-                                                                //       PlaylistDb
-                                                                //           .playlistnameCheck(
-                                                                //               value);
-                                                                //   if (value ==
-                                                                //       '') {
-                                                                //     return 'Enter playlist name';
-                                                                //   } else if (check) {
-                                                                //     return '$value already exist';
-                                                                //   } else {
-                                                                //     return null;
-                                                                //   }
-                                                                // },
+                                                                validator:
+                                                                    (value) {
+                                                                  bool check =
+                                                                      PlaylistDb()
+                                                                          .playlistnameCheck(
+                                                                              value);
+                                                                  if (value ==
+                                                                      '') {
+                                                                    return 'Enter playlist name';
+                                                                  } else if (check) {
+                                                                    return '$value already exist';
+                                                                  } else {
+                                                                    return null;
+                                                                  }
+                                                                },
                                                               ),
                                                             ),
                                                             actions: [
@@ -223,33 +226,31 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                               TextButton.icon(
                                                                   onPressed:
                                                                       () {
-                                                                    // if (_formKey
-                                                                    //     .currentState!
-                                                                    //     .validate()) {
-                                                                    //   final name =
-                                                                    //       newPlaylistController
-                                                                    //           .text
-                                                                    //           .trimLeft();
-                                                                    //   if (name
-                                                                    //       .isEmpty) {
-                                                                    //     return;
-                                                                    //   } else {
-                                                                    //     final music =
-                                                                    //         AudioPlayer(
-                                                                    //             name:
-                                                                    //                 name,
-                                                                    //             songId: []);
+                                                                    if (_formKey
+                                                                        .currentState!
+                                                                        .validate()) {
+                                                                      final name = newPlaylistController
+                                                                          .text
+                                                                          .trimLeft();
+                                                                      if (name
+                                                                          .isEmpty) {
+                                                                        return;
+                                                                      } else {
+                                                                        final music = AudioPlayer(
+                                                                            name:
+                                                                                name,
+                                                                            songId: []);
 
-                                                                    //     PlaylistDb
-                                                                    //         .playlistAdd(
-                                                                    //             music);
-                                                                    //     newPlaylistController
-                                                                    //         .clear();
-                                                                    //   }
-                                                                    //   Navigator.of(
-                                                                    //           context)
-                                                                    //       .pop();
-                                                                    // }
+                                                                        PlaylistDb.playlistUpdate(
+                                                                            music,
+                                                                            index);
+                                                                        newPlaylistController
+                                                                            .clear();
+                                                                      }
+                                                                      Navigator.of(
+                                                                              context)
+                                                                          .pop();
+                                                                    }
                                                                   },
                                                                   icon:
                                                                       const Icon(
@@ -269,7 +270,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                   )),
                                                             ],
                                                           );
-                                                        }); /////////////////////////////////////////////////////
+                                                        }); 
                                                   },
                                                   icon: const Icon(
                                                     Icons.edit_note_rounded,

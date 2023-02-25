@@ -2,6 +2,8 @@ import 'package:fade_scroll_app_bar/fade_scroll_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:music_drift/screens/favourite_screen/mostly_played.dart';
+import 'package:music_drift/screens/favourite_screen/recently_played.dart';
 import 'package:music_drift/widgets/bg.dart';
 import 'package:music_drift/widgets/get_songs.dart';
 import 'package:music_drift/widgets/miniplayer.dart';
@@ -90,7 +92,11 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             ),
                           ),
                           onTap: () {
-                            // Recents();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const RecentlyPlayed()));
                             print('Recently played');
                           },
                         ),
@@ -112,7 +118,11 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                 )),
                           ),
                           onTap: () {
-                            // MostPlayed();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const MostlyPlayed()));
                             print('Mostly played');
                           },
                         )
@@ -187,8 +197,10 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                                             favorData[index].title,
                                             maxLines: 1,
                                           ),
-                                          subtitle:
-                                              Text(favorData[index].artist!),
+                                          subtitle: Text(
+                                            favorData[index].artist!,
+                                            maxLines: 1,
+                                          ),
                                           textColor: Colors.white,
                                           trailing: IconButton(
                                             onPressed: () {
