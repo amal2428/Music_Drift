@@ -18,13 +18,6 @@ class FavouriteDb {
     isfavourite = true;
   }
 
-
-
-
-
-
-  
-
   static bool favourCheck(SongModel song) {
     if (musicDb.values.contains(song.id)) {
       return true;

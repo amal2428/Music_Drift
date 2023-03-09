@@ -186,7 +186,10 @@ class _MiniPlayerState extends State<PlayScreen> {
                         //     .displayNameWOExt;
                         // final songid =
                         //     widget.audioPlayerSong[GetSongs.currentIndexes].id;
-                        bottomSheet( context);
+
+
+
+                        // BottomSheetWidget().bottomSheet(context, currentIndex, SongModel);
                       },
                       icon: const Icon(Icons.playlist_add),
                       iconSize: 30,

@@ -24,6 +24,13 @@ class RecentlyPlayed extends StatelessWidget {
           ),
           backgroundColor: Colors.transparent,
         ),
+
+
+
+
+
+
+
       ),
     );
   }

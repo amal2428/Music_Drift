@@ -221,7 +221,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   IconButton(
                                       onPressed: () {
-                                        bottomSheet(context);
+                                        int id = item.data![index].id;
+
+                                        BottomSheetWidget().bottomSheet(
+                                          context,id,item.data![index]
+                                        );
+
+
+                                        
                                       },
                                       icon: const Icon(Icons.playlist_add)),
                                   FavouriteButton(song: item.data![index]),

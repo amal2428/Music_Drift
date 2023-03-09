@@ -54,9 +54,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                 ],
                 elevation: 0,
               ),
-
-
-
               body: SingleChildScrollView(
                 child: Column(children: [
                   const SizedBox(
@@ -188,9 +185,6 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                     ),
                                                                   ),
                                                                 ),
-
-                                                                
-
                                                                 validator:
                                                                     (value) {
                                                                   bool check =
@@ -270,7 +264,7 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                                   )),
                                                             ],
                                                           );
-                                                        }); 
+                                                        });
                                                   },
                                                   icon: const Icon(
                                                     Icons.edit_note_rounded,

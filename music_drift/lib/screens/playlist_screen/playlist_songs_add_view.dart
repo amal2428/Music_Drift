@@ -53,6 +53,9 @@ class _PlaylistAddSongsState extends State<PlaylistAddSongs> {
               (BuildContext context, Box<AudioPlayer> value, Widget? child) {
             playlistSong =
                 listplaylist(value.values.toList()[widget.folderindex].songId);
+
+
+                
             return ListView.separated(
               shrinkWrap: true,
               physics: const ScrollPhysics(),
