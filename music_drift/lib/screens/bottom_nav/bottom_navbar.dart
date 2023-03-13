@@ -12,9 +12,7 @@ import 'package:music_drift/widgets/miniplayer.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar(
-      {
-      super.key});
+  const BottomNavBar({super.key});
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
@@ -54,7 +52,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   }),
             const SizedBox.shrink(),
             CurvedNavigationBar(
-              backgroundColor:const Color.fromRGBO(43, 0, 50, 1),
+              backgroundColor: const Color.fromRGBO(43, 0, 50, 1),
               color: const Color.fromARGB(255, 79, 8, 50),
               height: 55,
               items: const [
@@ -85,7 +83,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   _selectedIndex = index;
                   FavouriteDb.favouriteSongs.notifyListeners();
                   playingSongNotifier.notifyListeners();
-
                 });
               },
             ),

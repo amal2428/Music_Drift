@@ -63,13 +63,16 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                     height: 15,
                   ),
                   Hive.box<AudioPlayer>('playlistDB').isEmpty
-                      ? const Center(
-                          child: Text(
-                            'No playlists added',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 1),
+                      ? const SizedBox(
+                          height: 600,
+                          child: Center(
+                            child: Text(
+                              'No playlists added',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 1),
+                            ),
                           ),
                         )
                       : SingleChildScrollView(
@@ -115,6 +118,10 @@ class _PlaylistScreenState extends State<PlaylistScreen> {
                                                     showDialog(
                                                         context: context,
                                                         builder: (context) {
+                                                          final newPlaylistController =
+                                                              TextEditingController(
+                                                                  text: data
+                                                                      .name);
                                                           return AlertDialog(
                                                             backgroundColor:
                                                                 const Color

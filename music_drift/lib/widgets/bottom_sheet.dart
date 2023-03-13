@@ -135,28 +135,9 @@ class BottomSheetWidget {
   ) {
     if (!playlist!.isValueIn(data.id)) {
       playlist!.add(data.id);
-      const snackbar = SnackBar(
-        backgroundColor: Colors.transparent,
-        duration: Duration(milliseconds: 800),
-        behavior: SnackBarBehavior.floating,
-        width: 200,
-        content: Text(
-          'Added to Playlist',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      );
-
-      // ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
   }
 }
-
-
-
-
-
 
   // void addSongToPlaylist(String playlistName, SongModel song) {
   //   print('fghfdhdfhg');

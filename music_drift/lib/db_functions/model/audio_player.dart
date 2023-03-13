@@ -20,7 +20,7 @@ class AudioPlayer extends HiveObject {
     songId.add(id);
     save();
   }
-  
+
 
   deleteData(int id) {
     songId.remove(id);

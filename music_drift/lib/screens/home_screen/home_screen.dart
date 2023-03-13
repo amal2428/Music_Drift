@@ -1,3 +1,4 @@
+// import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
@@ -9,6 +10,7 @@ import 'package:music_drift/widgets/get_songs.dart';
 import 'package:music_drift/widgets/miniplayer.dart';
 import 'package:music_drift/widgets/text.dart';
 import 'package:on_audio_query/on_audio_query.dart';
+// import 'package:permission_handler/permission_handler.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,6 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     requestStoragePermission();
   }
+
+  // void requestPermission() {
+  //   setState(() {
+  //     Permission.storage.request();
+  //   });
+  // }
 
   @override
   void dispose() {
@@ -224,11 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         int id = item.data![index].id;
 
                                         BottomSheetWidget().bottomSheet(
-                                          context,id,item.data![index]
-                                        );
-
-
-                                        
+                                            context, id, item.data![index]);
                                       },
                                       icon: const Icon(Icons.playlist_add)),
                                   FavouriteButton(song: item.data![index]),
@@ -270,8 +274,23 @@ class _HomeScreenState extends State<HomeScreen> {
       bool permissionStatus = await _audioQuery.permissionsStatus();
       if (!permissionStatus) {
         await _audioQuery.permissionsRequest();
+
         setState(() {});
       }
     }
   }
+
+  // Future<void> _pickFile() async {
+  //   final androidInfo = await DeviceInfoPlugin().androidInfo;
+  //   late final Map<Permission, PermissionStatus> statuses;
+
+  //   if (androidInfo.version.sdkInt <= 32) {
+  //     statuses = await [Permission.storage].request();
+  //   } else {
+  //     statuses = await [Permission.audio].request();
+  //   }
+
+  //   var allAccepted = true;
+  //   statuses.forEach((key, value) {});
+  // }
 }

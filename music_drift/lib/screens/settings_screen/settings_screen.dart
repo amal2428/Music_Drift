@@ -4,6 +4,7 @@ import 'package:music_drift/screens/settings_screen/settings_about_us.dart';
 import 'package:music_drift/screens/settings_screen/settings_license.dart';
 import 'package:music_drift/screens/settings_screen/settings_privacy.dart';
 import 'package:music_drift/screens/settings_screen/settings_reset.dart';
+import 'package:music_drift/screens/settings_screen/settings_terms_and_conditions.dart';
 import 'package:music_drift/widgets/bg.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -77,6 +78,19 @@ class SettingsScreen extends StatelessWidget {
                     textColor: Colors.white,
                     onTap: () {
                       License().license(context);
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.menu_book_sharp),
+                    title: const Text('Terms And Conditions'),
+                    tileColor: const Color.fromRGBO(43, 0, 50, 0.592),
+                    iconColor: Colors.white,
+                    textColor: Colors.white,
+                    onTap: () {
+                      TermsAndConditions().termsandcondition(context);
                     },
                   ),
                   const SizedBox(
